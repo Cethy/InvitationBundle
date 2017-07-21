@@ -2,6 +2,7 @@
 
 namespace Cethyworks\InvitationBundle\Tests\Security\Provider;
 
+use Cethyworks\InvitationBundle\Model\Invitation;
 use Cethyworks\InvitationBundle\Model\InvitedUser;
 use Cethyworks\InvitationBundle\Model\SimpleInvitation;
 use Cethyworks\InvitationBundle\Security\Provider\InMemoryProvider;
@@ -71,8 +72,8 @@ class InMemoryProviderTest extends AbstractProviderTest
 
     protected function setUp()
     {
-        $this->provider = new InMemoryProvider(SimpleInvitation::class, [
-            ['code' => 'foo'],
+        $this->provider = new InMemoryProvider(Invitation::class, [
+            ['code' => 'foo', 'email' => 'some@email.com'],
             ['code' => 'bar'],
         ]);
     }

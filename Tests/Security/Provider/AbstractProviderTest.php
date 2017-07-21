@@ -2,6 +2,8 @@
 
 namespace Cethyworks\InvitationBundle\Tests\Security\Provider;
 
+use Cethyworks\InvitationBundle\Model\Invitation;
+use Cethyworks\InvitationBundle\Model\InvitationInterface;
 use Cethyworks\InvitationBundle\Model\InvitedUser;
 use Cethyworks\InvitationBundle\Model\SimpleInvitation;
 use Cethyworks\InvitationBundle\Security\Provider\AbstractUserInvitedProvider;
@@ -39,7 +41,7 @@ abstract class AbstractProviderTest extends TestCase
         $user = $this->provider->loadUserByUsername($code);
 
         $this->assertInstanceOf(InvitedUser::class, $user);
-        $this->assertInstanceOf(SimpleInvitation::class, $user->getInvitation());
+        $this->assertInstanceOf(InvitationInterface::class, $user->getInvitation());
         $this->assertEquals($code, $user->getInvitation()->getCode());
     }
 
@@ -58,14 +60,14 @@ abstract class AbstractProviderTest extends TestCase
      */
     public function testRefreshUser($code)
     {
-        $invitation = new SimpleInvitation();
+        $invitation = new Invitation();
         $invitation->setCode($code);
 
         /** @var InvitedUser $user */
         $user = $this->provider->refreshUser(new InvitedUser($invitation));
 
         $this->assertInstanceOf(InvitedUser::class, $user);
-        $this->assertInstanceOf(SimpleInvitation::class, $user->getInvitation());
+        $this->assertInstanceOf(InvitationInterface::class, $user->getInvitation());
         $this->assertEquals($code, $user->getInvitation()->getCode());
     }
 

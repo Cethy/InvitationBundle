@@ -63,4 +63,12 @@ abstract class AbstractProviderFactoryTest extends TestCase
         // will throw InvalidConfigurationException
         $node->finalize($normalizedConfig);
     }
+
+    public function testGetKey()
+    {
+        /** @var UserProviderFactoryInterface $factory */
+        $factory = new $this->factoryClass('new_key', 'foo');
+
+        $this->assertEquals('new_key', $factory->getKey());
+    }
 }
