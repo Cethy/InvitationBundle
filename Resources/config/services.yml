@@ -1,0 +1,18 @@
+services:
+    # `invitation_memory` provider
+    cethyworks_invitation.in_memory.provider:
+        class: Cethyworks\InvitationBundle\Security\Provider\InMemoryProvider
+        arguments:
+            - "%cethyworks.invitation.invitation_class%"
+
+    # `invitation_entity` provider
+    cethyworks_invitation.entity.provider:
+        class: Cethyworks\InvitationBundle\Security\Provider\EntityProvider
+        arguments:
+            - "%cethyworks.invitation.invitation_class%"
+            - "@doctrine"
+
+    cethyworks_invitation.authenticator:
+        class: Cethyworks\InvitationBundle\Security\InvitationAuthenticator
+        arguments:
+            - "@router"

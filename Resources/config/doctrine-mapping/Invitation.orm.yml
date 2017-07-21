@@ -1,0 +1,5 @@
+Cethyworks\InvitationBundle\Model\Invitation:
+    type: mappedSuperclass
+    fields:
+        code:  {type: string, nullable: false, unique: true}
+        email: {type: string, nullable: false, unique: false}
