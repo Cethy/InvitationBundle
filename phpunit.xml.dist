@@ -21,7 +21,8 @@
 
     <filter>
         <whitelist>
-            <directory>Form</directory>
+            <directory>Model</directory>
+            <directory>Security</directory>
         </whitelist>
     </filter>
 </phpunit>
