@@ -1,7 +1,9 @@
 <?php
 
-namespace Cethyworks\InvitationBundle\Model;
+namespace Cethyworks\InvitationBundle\Tests\Model;
 
+use Cethyworks\InvitationBundle\Model\GenerateCodeTrait;
+use Cethyworks\InvitationBundle\Model\SimpleInvitation;
 use PHPUnit\Framework\TestCase;
 
 class GenerateCodeTraitTest extends TestCase
