@@ -16,7 +16,8 @@
     "require-dev": {
         "phpunit/phpunit": "^4.8",
         "doctrine/common": "^2.7",
-        "doctrine/doctrine-bundle": "^1.6.8"
+        "doctrine/doctrine-bundle": "^1.6.8",
+        "symfony/expression-language": "^3.3"
     },
     "authors": [
         {
