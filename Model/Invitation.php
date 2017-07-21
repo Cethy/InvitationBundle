@@ -19,6 +19,8 @@ class Invitation extends SimpleInvitation implements EmailInvitationInterface
 
     /**
      * @return mixed
+     *
+     * @codeCoverageIgnore
      */
     public function getId()
     {
